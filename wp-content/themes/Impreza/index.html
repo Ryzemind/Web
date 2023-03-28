@@ -1,0 +1,1 @@
+This script cannot be accessed directly.
