@@ -55,56 +55,6 @@
     gtag("config", "G-B11T0SQPRM");
   </script>
 
-  <script>
-    function enviarMensajeDirecto() {
-      var url = "https://wa.me/51975677451?";
-      window.open(url, '_blank');
-    }
-
-    function enviarMensajeWpp() {
-      var nombre = document.getElementById("nombre").value;
-      var empresa = document.getElementById("empresa").value;
-      var email = document.getElementById("email").value;
-      var msg = document.getElementById("msg").value;
-      var telef = document.getElementById("telef").value;
-
-      if (nombre === "" || email === "" || msg === "") {
-        return false;
-      }
-
-      if (telef === "") {
-        telef = " - ";
-      }
-
-      if (empresa === "") {
-        empresa = " - ";
-      }
-
-      var mensaje = "Hola, soy " + nombre + " y desearía: \n" + msg + "\nEmail: " + email + "\nTelef: " + telef + "\nEmpresa: " + empresa + "\nPresupuesto: " + document.getElementById("presupuesto").value + "\nTiempo: " + document.getElementById("tiempo").value;
-
-      var opciones = document.querySelectorAll('input[type=checkbox]:checked');
-
-      if (opciones.length === 0) {
-
-        return;
-      }
-
-      if (opciones.length > 0) {
-        mensaje += "\nServicios: ";
-        for (var i = 0; i < opciones.length; i++) {
-          mensaje += opciones[i].value + ", ";
-        }
-        mensaje = mensaje.slice(0, -2);
-      }
-
-      var url = "https://wa.me/51975677451?text=" + encodeURI(mensaje);
-
-      window.location.href = url;
-      return false;
-
-    }
-  </script>
-
   <link rel="https://api.w.org/" href="../wp-json/index.html" />
   <link rel="alternate" type="application/json" href="../wp-json/wp/v2/pages/1840.json" />
   <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
@@ -1613,8 +1563,9 @@
       font-size: 11px !important;
       margin-left: 3.5em !important;
     }
-  </style>
 
+    `
+  </style>
   <style id="us-design-options-css">
     .us_custom_afab2d43 {
       width: 100vw !important;
@@ -1662,7 +1613,6 @@
 <body
   class="page-template-default page page-id-1840 l-body Impreza_8.14 us-core_8.14.1 header_hor headerinpos_top state_default wpb-js-composer js-comp-ver-6.10.0 vc_responsive"
   itemscope itemtype="https://schema.org/WebPage">
-
   <div class="l-canvas type_wide">
     <header id="page-header" class="l-header pos_fixed shadow_none bg_transparent id_63" itemscope
       itemtype="https://schema.org/WPHeader">
@@ -1912,12 +1862,9 @@
                   </div>
                   <div class="wpb_column vc_column_container">
                     <div class="vc_column-inner">
-
-                      <form class="w-form blur-box contact-form layout_ver for_cform us_form_1" autocomplete="on"
-                        onsubmit="return enviarMensajeWpp();" style="--fields-gap: 2.5rem">
-
+                      <form class="w-form blur-box contact-form layout_ver for_cform us_form_1" autocomplete="off"
+                        action="https://rzv.studio/contact/" method="post" style="--fields-gap: 2.5rem">
                         <div class="w-form-h">
-
                           <div class="w-form-row for_text has_label move_label required with_icon">
                             <div class="w-form-row-label">
                               <span>Nombre *</span>
@@ -1925,27 +1872,25 @@
                             <div class="w-form-row-field">
                               <i class="fal fa-user"></i>
                               <input aria-label="Name" type="text" name="us_form_1_text_1" value placeholder
-                                data-required="true" aria-required="true" id="nombre" />
+                                data-required="true" aria-required="true" />
                             </div>
                             <div class="w-form-row-state">
                               Rellena este campo
                             </div>
                           </div>
-
                           <div class="w-form-row for_text has_label move_label required with_icon">
                             <div class="w-form-row-label">
-                              <span>Empresa (opcional)</span>
+                              <span>Empresa *</span>
                             </div>
                             <div class="w-form-row-field">
                               <i class="fal fa-briefcase"></i>
                               <input aria-label="Business name" type="text" name="us_form_1_text_2" value placeholder
-                                id="empresa" />
+                                data-required="true" aria-required="true" />
                             </div>
                             <div class="w-form-row-state">
                               Rellena este campo
                             </div>
                           </div>
-
                           <div class="w-form-row for_email has_label move_label required with_icon cols_2">
                             <div class="w-form-row-label">
                               <span>Email *</span>
@@ -1953,41 +1898,38 @@
                             <div class="w-form-row-field">
                               <i class="fal fa-envelope"></i>
                               <input aria-label="Email" type="email" name="us_form_1_email_1" value placeholder
-                                data-required="true" aria-required="true" id="email" />
+                                data-required="true" aria-required="true" />
                             </div>
                             <div class="w-form-row-state">
                               Ingresa un email válido
                             </div>
                           </div>
-
                           <div class="w-form-row for_text has_label move_label required with_icon cols_2">
                             <div class="w-form-row-label">
-                              <span>Teléfono (opcional)</span>
+                              <span>Teléfono *</span>
                             </div>
                             <div class="w-form-row-field">
                               <i class="fal fa-phone"></i>
                               <input aria-label="Phone" inputmode="tel" type="text" name="us_form_1_text_3" value
-                                placeholder id="telef" />
+                                placeholder data-required="true" aria-required="true" />
                             </div>
                             <div class="w-form-row-state">
                               Rellena este campo
                             </div>
                           </div>
-
                           <div class="w-form-row for_textarea has_label move_label required with_icon">
                             <div class="w-form-row-label">
-                              <span>Cuéntame sobre tu proyecto</span>
+                              <span>Cuéntame sobre tu proyecto *</span>
                             </div>
                             <div class="w-form-row-field">
                               <i class="fal fa-rocket-launch"></i>
                               <textarea aria-label="Tell me about your project" name="us_form_1_textarea_1" placeholder
-                                data-required="true" aria-required="true" id="msg"></textarea>
+                                data-required="true" aria-required="true"></textarea>
                             </div>
                             <div class="w-form-row-state">
                               Rellena este campo
                             </div>
                           </div>
-
                           <div class="w-form-row for_checkboxes has_label required">
                             <div class="w-form-row-label">
                               <span>En qué podría ayudar?
@@ -1995,158 +1937,132 @@
                             </div>
                             <div class="w-form-row-field">
                               <label>
-                                <input type="checkbox" class="screen-reader-text" name="op1" data-required="true"
-                                  value="Página Web" />
+                                <input type="checkbox" class="screen-reader-text" name="us_form_1_checkboxes_1[]"
+                                  data-required="true" value="Branding" />
                                 <span class="w-form-checkbox"></span>
-                                <span>Página Web</span>
+                                <span>Branding</span>
                               </label>
                               <label>
-                                <input type="checkbox" class="screen-reader-text" name="op2" data-required="true"
-                                  value="Aplicativo Móvil" />
+                                <input type="checkbox" class="screen-reader-text" name="us_form_1_checkboxes_1[]"
+                                  data-required="true" value="Website" />
                                 <span class="w-form-checkbox"></span>
-                                <span>Aplicativo Móvil</span>
+                                <span>Website</span>
                               </label>
                               <label>
-                                <input type="checkbox" class="screen-reader-text" name="op3" data-required="true"
-                                  value="Diseño Gráfico" />
+                                <input type="checkbox" class="screen-reader-text" name="us_form_1_checkboxes_1[]"
+                                  data-required="true" value="UI / UX design" />
                                 <span class="w-form-checkbox"></span>
-                                <span>Diseño Gráfico</span>
+                                <span>UI / UX design</span>
                               </label>
                               <label>
-                                <input type="checkbox" class="screen-reader-text" name="op4" data-required="true"
-                                  value="Marketing" />
+                                <input type="checkbox" class="screen-reader-text" name="us_form_1_checkboxes_1[]"
+                                  data-required="true" value="Search Marketing" />
                                 <span class="w-form-checkbox"></span>
-                                <span>Marketing</span>
+                                <span>Search Marketing</span>
                               </label>
                               <label>
-                                <input type="checkbox" class="screen-reader-text" name="op5" data-required="true"
-                                  value="Software" />
+                                <input type="checkbox" class="screen-reader-text" name="us_form_1_checkboxes_1[]"
+                                  data-required="true" value="Content Creation" />
                                 <span class="w-form-checkbox"></span>
-                                <span>Software</span>
+                                <span>Content Creation</span>
                               </label>
                               <label>
-                                <input type="checkbox" class="screen-reader-text" name="op6" data-required="true"
-                                  value="IA y Automatización" />
+                                <input type="checkbox" class="screen-reader-text" name="us_form_1_checkboxes_1[]"
+                                  data-required="true" value="AI &amp; Automation" />
                                 <span class="w-form-checkbox"></span>
-                                <span>IA y Automatización</span>
+                                <span>AI & Automation</span>
                               </label>
                               <label>
-                                <input type="checkbox" class="screen-reader-text" name="op7" data-required="true"
-                                  value="Analísis de Datos" />
+                                <input type="checkbox" class="screen-reader-text" name="us_form_1_checkboxes_1[]"
+                                  data-required="true" value="Creative Direction" />
                                 <span class="w-form-checkbox"></span>
-                                <span>Analísis de Datos</span>
+                                <span>Creative Direction</span>
                               </label>
                               <label>
-                                <input type="checkbox" class="screen-reader-text" name="op8" data-required="true"
-                                  value="Estrategia Corporativa" />
+                                <input type="checkbox" class="screen-reader-text" name="us_form_1_checkboxes_1[]"
+                                  data-required="true" value="Strategy" />
                                 <span class="w-form-checkbox"></span>
-                                <span>Estrategia Corporativa</span>
+                                <span>Strategy</span>
                               </label>
                             </div>
                             <div class="w-form-row-state">
                               Selecciona una opción
                             </div>
                           </div>
-
                           <div class="w-form-row for_select with_icon cols_2">
-
                             <div class="w-form-row-field">
                               <i class="fal fa-usd-circle"></i>
-
-                              <select aria-label="us_form_1_select_1" id="presupuesto" name="presupuesto">
-
-                                <option value="Personalizado">
-                                  Mi Presupuesto
+                              <select aria-label="us_form_1_select_1" name="us_form_1_select_1">
+                                <option value="Budget">Presupuesto</option>
+                                <option value="$2,500-$5,000">
+                                  $2,500-$5,000
                                 </option>
-
-                                <option value="$50 - $100">
-                                  $50 - $100
+                                <option value="$5,000-$10,000">
+                                  $5,000-$10,000
                                 </option>
-
-                                <option value="$100 - $250">
-                                  $100 - $250
+                                <option value="$10,000-$15,000">
+                                  $10,000-$15,000
                                 </option>
-
-                                <option value="$250 - $450">
-                                  $250 - $450
-                                </option>
-
-                                <option value="$450 - $750">
-                                  $450 - $750
-                                </option>
-
-                                <option value="$750 - $3000">
-                                  $750 - $3000
-                                </option>
-
-                                <option value="No estoy seguro">
+                                <option value="I&#039;m not sure">
                                   No estoy seguro
                                 </option>
-
                               </select>
-
                             </div>
-
                             <div class="w-form-row-state">
                               Selecciona una opción
                             </div>
-
                           </div>
-
                           <div class="w-form-row for_select with_icon cols_2">
                             <div class="w-form-row-field">
                               <i class="fal fa-calendar-check"></i>
-
-                              <select aria-label="us_form_1_select_2" id="tiempo" name="tiempo">
-
-                                <option value="Personalizado">Tiempo Estimado</option>
-                                <option value="1 Semana">
-                                  1 Semana
+                              <select aria-label="us_form_1_select_2" name="us_form_1_select_2">
+                                <option value="Timeframe ">Tiempo Estimado</option>
+                                <option value="1-3 months">1-3 months</option>
+                                <option value="3-6 months">3-6 months</option>
+                                <option value="6-12 months">
+                                  6-12 months
                                 </option>
-                                <option value="1-3 Semanas">
-                                  1-3 Semanas
-                                </option>
-                                <option value="3-6 Semanas">
-                                  3-6 Semanas
-                                </option>
-                                <option value="6-12 Semanas">
-                                  6-12 Semanas
-                                </option>
-                                <option value="Para ayer!">Para ayer!</option>
+                                <option value="Yesterday!">Para ayer!</option>
                               </select>
                             </div>
                             <div class="w-form-row-state">
                               Selecciona una opción
                             </div>
                           </div>
-
+                          <div class="w-form-row for_captcha has_label move_label required with_icon">
+                            <div class="w-form-row-label">
+                              <span>Cuanto es <span>18 + 14 = ?</span></span>
+                            </div>
+                            <div class="w-form-row-field">
+                              <input type="hidden" name="us_form_1_captcha_1_hash"
+                                value="822fce34fe2d5368b63fbe7102befccc" />
+                              <i class="fal fa-badge-check"></i>
+                              <input aria-label="What is" type="text" name="us_form_1_captcha_1" placeholder
+                                data-required="true" aria-required="true" />
+                            </div>
+                            <div class="w-form-row-description">
+                              Nos aseguramos que seas humano!
+                            </div>
+                            <div class="w-form-row-state">
+                              Ingresa el resultado para continuar
+                            </div>
+                          </div>
+                          <input type="hidden" name="action" value="us_ajax_cform" />
+                          <input type="hidden" name="post_id" value="1840" />
+                          <input type="hidden" name="form_index" value="1" />
                           <div class="w-form-row for_submit align_center">
-
                             <button class="w-btn icon_atright us-btn-style_3" aria-label="Send message" type="submit">
                               <span class="g-preloader type_1"></span>
                               <span class="w-btn-label">Enviar Mensaje</span>
                               <i class="far fa-arrow-right"></i>
                             </button>
-
-                            <br>
-                            <br>
-
-                            <button class="w-btn icon_atright us-btn-style_3" type="button"
-                              style="border-color: #000000; background-color: greenyellow;"
-                              onclick="enviarMensajeDirecto()">
-                              <span class="g-preloader type_1"></span>
-                              <span class="w-btn-label">Enviar Whatsapp</span>
-                              <i class="far fa-arrow-right"></i>
-                            </button>
-
                           </div>
-
                         </div>
-
-
+                        <div class="w-form-message"></div>
+                        <div class="w-form-json hidden"
+                          onclick='return {"ajaxurl":"https:\/\/rzv.studio\/wp-admin\/admin-ajax.php","messages":{"err_empty":"Fill out this field","err_size":"File size cannot exceed %s MB","err_extension":"%s file type is not allowed"}}'>
+                        </div>
                       </form>
-
-
                     </div>
                   </div>
                   <div class="wpb_column vc_column_container">
